@@ -6,6 +6,7 @@ import TicketItem from './components/Ticketitem';
 import { sortBoard } from './utilities/sortingUtitlities';
 import UserInfoContext from './context/UserInfoContext';
 import BlogPage from './components/BlogPage';
+import { ThemeProvider } from './context/ThemeProvider';
 
 function App() {
 
@@ -40,7 +41,9 @@ function App() {
   return (
     <>
     <UserInfoContext.Provider value={UserInfo}>
-      <BlogPage />
+      <ThemeProvider>
+        <BlogPage />
+      </ThemeProvider>
     </UserInfoContext.Provider>
     <div className="isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
