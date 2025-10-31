@@ -4,6 +4,8 @@ import ticketReducer from './reducers/ticketReducer';
 import './App.css';
 import TicketItem from './components/Ticketitem';
 import { sortBoard } from './utilities/sortingUtitlities';
+import UserInfoContext from './context/UserInfoContext';
+import BlogPage from './components/BlogPage';
 
 function App() {
 
@@ -33,8 +35,13 @@ function App() {
     sortBoard(sort);
   }
 
+  const UserInfo = { username: 'Admin', isAdmin: false }
 
   return (
+    <>
+    <UserInfoContext.Provider value={UserInfo}>
+      <BlogPage />
+    </UserInfoContext.Provider>
     <div className="isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Bug Blaster</h2>
@@ -53,8 +60,9 @@ function App() {
             <TicketItem tickets={state.tickets} dispatch={dispatch} sortedBoards={sortBoard(sort)}  />
         </div>
       )
-      }
+    }
     </div>
+    </>
   );
 }
 
