@@ -1,0 +1,12 @@
+form .priority-fields div:last-of-type {
+  border-right: 0;
+}
+
+form .priority-fields input {
+    background-color: #4b5563;
+}
+
+.all-tickets .single-board {
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+  padding: 1rem;
+}
